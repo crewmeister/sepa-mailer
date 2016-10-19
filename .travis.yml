@@ -7,7 +7,7 @@ node_js:
 services:
 - docker
 
-before_install: openssl aes-256-cbc -K $encrypted_83630750896a_key -iv $encrypted_83630750896a_iv -in travis_rsa.enc -out travis_rsa -d
+before_install: 
 
 install:
 - npm install
@@ -23,6 +23,7 @@ addons:
     - docker03.crewmeister.com
 
 after_success:
-- if [ "$TRAVIS_BRANCH" == "master" ]; then eval "$(ssh-agent -s)"; chmod 600 $TRAVIS_BUILD_DIR/travis_rsa;
+- if [ "$TRAVIS_BRANCH" == "master" ]; then openssl aes-256-cbc -K $encrypted_83630750896a_key -iv $encrypted_83630750896a_iv -in travis_rsa.enc -out travis_rsa -d; 
+  eval "$(ssh-agent -s)"; chmod 600 $TRAVIS_BUILD_DIR/travis_rsa;
   ssh-add $TRAVIS_BUILD_DIR/travis_rsa; ssh deploy@docker03.crewmeister.com "sudo
   /usr/bin/docker-zero-downtime-deploy.sh sepa-mailer.cfg"; fi
