@@ -18,6 +18,10 @@ script:
   docker.crewmeister.com:5000; docker push docker.crewmeister.com:5000/sepa-mailer."$TRAVIS_BRANCH";
   fi
 
+addons:
+  ssh_known_hosts:
+    - docker03.crewmeister.com
+
 after_success:
 - if [ "$TRAVIS_BRANCH" == "master" ]; then eval "$(ssh-agent -s)"; chmod 600 $TRAVIS_BUILD_DIR/travis_rsa;
   ssh-add $TRAVIS_BUILD_DIR/travis_rsa; ssh deploy@docker03.crewmeister.com "sudo
