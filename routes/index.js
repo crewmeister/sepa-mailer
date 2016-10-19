@@ -21,7 +21,7 @@ router.post('/', function(req, res, next) {
   var sepaMandate = req.body.sepaMandate;  
   var crewId = req.body.crewId;
   var ip_address = req.connection.remoteAddress;
-  var ip_address_proxied = req.headers['X-Forwarded-For'];
+  var ip_address_proxied = req.headers['X-Real-IP'];
   
   var text =  sepaMandate + "\n" +
               "\n" +
