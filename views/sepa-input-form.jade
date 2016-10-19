@@ -2,7 +2,8 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  div Wir freuen uns, dass Sie sich für Crewmeister und die bequeme Zahlung per SEPA-Lastschrift entschieden haben. 
+  div Bitte füllen Sie die folgenden Felder aus und klicken dann auf den orangenen Knopf "Lastschriftmandat erteilen". 
   form(id="sepa-mandate", method="post")
     div.input
       div.label <b>Name</b> des Zahlungspflichtigen (Kontoinhabers) / debtor name
@@ -23,15 +24,16 @@ block content
       div.label <b>BIC</b> des Zahlungspflichtigen (Kontoinhabers) / debtor BIC
       input(type="text", name="bic", class="form--input")
     div.input
-      input(type="checkbox", name="confirm", class="form--input")
-      span.label Hiermit erteile ich das unten aufgeführte SEPA-Lastschriftmandat.
+      input(type="checkbox", name="confirm", class="form--confirm--checkbox")
+      span.label Ich bestätige die Erteilung des unten aufgeführten SEPA Lastschriftmandats.
     div.input
       div.label Datum
       input(type="text", name="date", class="form--input")
     div.input
       div.label Ort
       input(type="text", name="location", class="form--input")
-    div.input
-       textarea(name="sepaMandate", cols="40", rows="5")
     div.actions
-      input(type="submit", value="Lastschriftmandat erteilen")
+      input(type="submit", class="form--submit--button", value="Lastschriftmandat erteilen")
+    div.input
+      textarea(name="sepaMandate", readonly="readonly", cols="120", rows="5", class="form--mandate--text")
+      input(type="hidden", name="crewId")

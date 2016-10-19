@@ -1,0 +1,19 @@
+sudo: required
+
+language: node_js
+node_js:
+- "6"
+
+services:
+- docker
+
+before_install: openssl aes-256-cbc -K $encrypted_83630750896a_key -iv $encrypted_83630750896a_iv -in travis_rsa.enc -out travis_rsa -d
+
+install:
+- npm install
+
+script:
+- if [ "$TRAVIS_BRANCH" == "master" ]; then docker build -t docker.crewmeister.com:5000/sepa-mailer."$TRAVIS_BRANCH"
+  .; docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  docker.crewmeister.com:5000; docker push docker.crewmeister.com:5000/sepa-mailer."$TRAVIS_BRANCH";
+  fi
