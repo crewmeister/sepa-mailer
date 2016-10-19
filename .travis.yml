@@ -17,3 +17,8 @@ script:
   .; docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   docker.crewmeister.com:5000; docker push docker.crewmeister.com:5000/sepa-mailer."$TRAVIS_BRANCH";
   fi
+
+after_success:
+- if [ "$TRAVIS_BRANCH" == "master" ]; then eval "$(ssh-agent -s)"; chmod 600 $TRAVIS_BUILD_DIR/travis_rsa;
+  ssh-add $TRAVIS_BUILD_DIR/travis_rsa; ssh deploy@docker03.crewmeister.com "sudo
+  /usr/bin/docker-zero-downtime-deploy.sh sepa-mailer.cfg"; fi
