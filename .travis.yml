@@ -23,6 +23,7 @@ after_success:
   eval "$(ssh-agent -s)"; 
   chmod 600 $TRAVIS_BUILD_DIR/travis_rsa;
   ssh-add $TRAVIS_BUILD_DIR/travis_rsa; 
+  
   echo $DEPLOY_SERVER_SSH_HOSTKEY;
   echo "$DEPLOY_SERVER $DEPLOY_SERVER_SSH_HOSTKEY" >> ~/.ssh/known_hosts;
   echo "$DEPLOY_SERVER $DEPLOY_SERVER_SSH_HOSTKEY";
