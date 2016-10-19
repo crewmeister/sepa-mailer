@@ -23,6 +23,6 @@ after_success:
   eval "$(ssh-agent -s)"; 
   chmod 600 $TRAVIS_BUILD_DIR/travis_rsa;
   ssh-add $TRAVIS_BUILD_DIR/travis_rsa; 
-  echo "$DEPLOY_SERVER $DEPLOY_SERVER_SSH_HOSTKEY" >> "~/.ssh/known_hosts;
+  echo "$DEPLOY_SERVER $DEPLOY_SERVER_SSH_HOSTKEY" >> "~/.ssh/known_hosts";
   chmod 600 ~/.ssh/known_hosts;
   ssh deploy@$DEPLOY_SERVER "sudo /usr/bin/docker-zero-downtime-deploy.sh sepa-mailer.cfg"; fi
