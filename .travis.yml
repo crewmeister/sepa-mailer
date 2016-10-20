@@ -11,7 +11,7 @@ install:
 - npm install
 
 script:
-- if [ "$TRAVIS_BRANCH" == "master" ]; then docker build -t docker.crewmeister.com:5000/sepa-mailer."$TRAVIS_BRANCH"
+- if [ "$TRAVIS_BRANCH" == "master" ]; then docker build -t $DOCKER_REGISTRY/sepa-mailer."$TRAVIS_BRANCH"
   .; docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   $DOCKER_REGISTRY; docker push $DOCKER_REGISTRY/sepa-mailer."$TRAVIS_BRANCH";
   fi
