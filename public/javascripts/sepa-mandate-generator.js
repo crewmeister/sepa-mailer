@@ -36,10 +36,11 @@ function getSepaMandateText(name, address, zip_city, country, iban, bic, date, l
          "\n" +
          "Ich ermächtige (Wir ermächtigen) den Zahlungsempfänger, Zahlungen von meinem (unserem) Konto mittels Lastschrift einzuziehen. Zugleich weise ich mein (weisen wir unser) Kreditinstitut an, die von auf mein (unsere) Konto gezogenen Lastschriften einzulösen.\n" +
          "Hinweis: Ich kann (Wir können) innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrages verlangen. Es gelten dabei die mit meinem (unserem) Kreditinstitut vereinbarten Bedingungen.\n" +
+         "Das Lastschriftmandat kann jederzeit widerrufen werden. Im Falle eines Widerrufs wird die Nutzung von Crewmeister zum Ablauf der zuletzt beglichenen Zahlungsperiode gesperrt.\n"+
          "\n" +
-         "By signing this mandate form, I (we) authorise the creditor to send instructions to my (our) bank to debit my (our) account and my (our) bank to debit my (our) account in accordance with the instructions from the creditor.\n" +
+         "By submitting this mandate form, I (we) authorise the creditor to send instructions to my (our) bank to debit my (our) account and my (our) bank to debit my (our) account in accordance with the instructions from the creditor.\n" +
          "Note: I can (we can), within eight weeks, starting with the date of the debit request, demand a refund of the amount charged. The terms and conditions agreed upon with my (our) financial institution apply.\n";
-         
+         "The mandate can be revoked anytime. In case of a revokation, the use of crewmeister will be blocked right after the last plan period that has actually been paid.\n"+
 }
 
 function setSepaMandateTextHtmlElement(text) {
