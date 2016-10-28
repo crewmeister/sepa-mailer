@@ -40,7 +40,7 @@ function getSepaMandateText(name, address, zip_city, country, iban, bic, date, l
          "\n" +
          "By submitting this mandate form, I (we) authorise the creditor to send instructions to my (our) bank to debit my (our) account and my (our) bank to debit my (our) account in accordance with the instructions from the creditor.\n" +
          "Note: I can (we can), within eight weeks, starting with the date of the debit request, demand a refund of the amount charged. The terms and conditions agreed upon with my (our) financial institution apply.\n";
-         "The mandate can be revoked anytime. In case of a revokation, the use of crewmeister will be blocked right after the last plan period that has actually been paid.\n"+
+         "The mandate can be revoked anytime. In case of a revokation, the use of crewmeister will be blocked right after the last plan period that has actually been paid.\n"
 }
 
 function setSepaMandateTextHtmlElement(text) {
